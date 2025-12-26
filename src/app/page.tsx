@@ -183,7 +183,7 @@ export default function HomePage() {
                 <LogoImage company={amazonAGI.company} link={amazonAGI.link} />
                 <div className="flex-1">
                   <div className="flex items-start justify-between gap-3">
-                    <div className="flex-1">
+                    <div>
                       {amazonAGI.link ? (
                         <Link
                           href={amazonAGI.link}
@@ -197,7 +197,6 @@ export default function HomePage() {
                         <h3 className="text-lg font-semibold">{amazonAGI.company}</h3>
                       )}
                       <p className="mt-1 text-sm font-medium text-neutral-600 dark:text-slate-400">{amazonAGI.role}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-neutral-700 dark:text-slate-300">{amazonAGI.summary}</p>
                     </div>
                     <Link
                       href="/experience"
@@ -207,6 +206,7 @@ export default function HomePage() {
                       <ArrowIcon />
                     </Link>
                   </div>
+                  <p className="mt-2 text-sm leading-relaxed text-neutral-700 dark:text-slate-300">{amazonAGI.summary}</p>
                 </div>
               </div>
             </article>
@@ -217,7 +217,7 @@ export default function HomePage() {
                 <LogoImage company={aiSafety.company} link={aiSafety.link} />
                 <div className="flex-1">
                   <div className="flex items-start justify-between gap-3">
-                    <div className="flex-1">
+                    <div>
                       {aiSafety.link ? (
                         <Link
                           href={aiSafety.link}
@@ -231,7 +231,6 @@ export default function HomePage() {
                         <h3 className="text-lg font-semibold">{aiSafety.company}</h3>
                       )}
                       <p className="mt-1 text-sm font-medium text-neutral-600 dark:text-slate-400">{aiSafety.role}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-neutral-700 dark:text-slate-300">{aiSafety.summary}</p>
                     </div>
                     <Link
                       href="/academics"
@@ -241,6 +240,7 @@ export default function HomePage() {
                       <ArrowIcon />
                     </Link>
                   </div>
+                  <p className="mt-2 text-sm leading-relaxed text-neutral-700 dark:text-slate-300">{aiSafety.summary}</p>
                 </div>
               </div>
             </article>
