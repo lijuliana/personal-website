@@ -64,7 +64,7 @@ export const personalInfo = {
     {
       company: "AI Safety Team",
       role: "Member & Technical Fellow",
-      summary: "Exploring safe and robust AI systems, critically evaluating risks of frontier AI research,.",
+      summary: "Critically evaluating risks and implications of frontier AI research through weekly discussions.",
       timeframe: "Sep 2025 – Present",
       location: "Cambridge, MA",
       type: "harvard",
