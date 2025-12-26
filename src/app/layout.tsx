@@ -19,7 +19,7 @@ const chirp = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Juliana Li | Personal Site",
+  title: "Juliana Li",
   description: "CS + Math @ Harvard, building ML, data, and education tools.",
 };
 
