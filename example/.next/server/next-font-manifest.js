@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/julianali/Desktop/personal_website/example/src/app/layout\":[\"static/media/0ee099e8026bafc4-s.p.woff\",\"static/media/72f4f6452f5ce6e7-s.p.woff\",\"static/media/8fa8737d3767a037-s.p.woff\",\"static/media/df332bd6f97f40fe-s.p.woff\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
