@@ -64,7 +64,7 @@ const ScholarIcon = () => (
   </svg>
 );
 
-const LogoImage = ({ company }: { company: string }) => {
+const LogoImage = ({ company, link }: { company: string; link?: string }) => {
   const [imageError, setImageError] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   // Remove all quotes (regular, curly, single), parentheses, and special chars, then slugify
@@ -77,8 +77,8 @@ const LogoImage = ({ company }: { company: string }) => {
     .replace(/\s+/g, "-");
   const imagePath = `/works/${slug}/logo.png`;
 
-  return (
-    <div className="relative h-full min-h-[80px] w-[80px] shrink-0 overflow-hidden rounded-lg bg-white/80 dark:bg-slate-900/60">
+  const imageContent = (
+    <div className="relative h-[80px] w-[80px] shrink-0 overflow-hidden rounded-lg bg-white/80 dark:bg-slate-900/60">
       {!imageError && (
         <Image
           src={imagePath}
@@ -94,6 +94,21 @@ const LogoImage = ({ company }: { company: string }) => {
       )}
     </div>
   );
+
+  if (link) {
+    return (
+      <Link
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="transition hover:opacity-80"
+      >
+        {imageContent}
+      </Link>
+    );
+  }
+
+  return imageContent;
 };
 
 const ArrowIcon = () => (
@@ -165,11 +180,22 @@ export default function HomePage() {
           {amazonAGI && (
             <article className="rounded-xl border border-[var(--border)] bg-white/80 p-4 shadow-sm dark:bg-slate-900/60">
               <div className="flex items-stretch gap-5">
-                <LogoImage company={amazonAGI.company} />
+                <LogoImage company={amazonAGI.company} link={amazonAGI.link} />
                 <div className="flex-1">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold">{amazonAGI.company}</h3>
+                      {amazonAGI.link ? (
+                        <Link
+                          href={amazonAGI.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg font-semibold hover:underline transition"
+                        >
+                          {amazonAGI.company}
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-semibold">{amazonAGI.company}</h3>
+                      )}
                       <p className="mt-1 text-sm font-medium text-neutral-600 dark:text-slate-400">{amazonAGI.role}</p>
                       <p className="mt-2 text-sm leading-relaxed text-neutral-700 dark:text-slate-300">{amazonAGI.summary}</p>
                     </div>
@@ -188,11 +214,22 @@ export default function HomePage() {
           {aiSafety && (
             <article className="rounded-xl border border-[var(--border)] bg-white/80 p-4 shadow-sm dark:bg-slate-900/60">
               <div className="flex items-stretch gap-5">
-                <LogoImage company={aiSafety.company} />
+                <LogoImage company={aiSafety.company} link={aiSafety.link} />
                 <div className="flex-1">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold">{aiSafety.company}</h3>
+                      {aiSafety.link ? (
+                        <Link
+                          href={aiSafety.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg font-semibold hover:underline transition"
+                        >
+                          {aiSafety.company}
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-semibold">{aiSafety.company}</h3>
+                      )}
                       <p className="mt-1 text-sm font-medium text-neutral-600 dark:text-slate-400">{aiSafety.role}</p>
                       <p className="mt-2 text-sm leading-relaxed text-neutral-700 dark:text-slate-300">{aiSafety.summary}</p>
                     </div>

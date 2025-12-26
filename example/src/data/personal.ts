@@ -41,6 +41,7 @@ export const personalInfo = {
       location: "Sunnyvale, CA",
       type: "industry",
       status: "upcoming",
+      link: "https://labs.amazon.science/",
     },
     {
       company: "Abaka AI",
@@ -49,14 +50,16 @@ export const personalInfo = {
       timeframe: "Jun–Sep 2025",
       location: "Palo Alto, CA",
       type: "industry",
+      link: "https://www.abaka.ai/"
     },
     {
       company: "Bleu",
       role: "Full Stack SWE Intern",
-      summary: "Developed a robust GenAI product visualization application with multi-step AI model pipeline.",
+      summary: "Developed a robust GenAI product visualization application with a multi-step AI model workflow.",
       timeframe: "Jul–Sep 2025",
       location: "Stanford, CA",
       type: "industry",
+      link: "https://buildbleu.com/"
     },
     {
       company: "AI Safety Team",
@@ -66,24 +69,27 @@ export const personalInfo = {
       location: "Cambridge, MA",
       type: "harvard",
       status: "current",
+      link: "https://aisst.ai/"
     },
     {
       company: "Harvard Tech for Social Good",
       role: "Senior Software Engineer",
-      summary: "Shipped Code.org mobile-friendly features to expand access.",
+      summary: "Developed key features of Code.org’s mobile-friendly web platform, increasing accessibility for global learners.",
       timeframe: "Sep 2025 – Present",
       location: "Cambridge, MA",
       type: "harvard",
       status: "current",
+      link: "https://socialgood.hcs.harvard.edu/"
     },
     {
       company: "Harvard Data Analytics Group",
       role: "Data Analyst",
-      summary: "Built a RAG pipeline for Standard Chartered analytics; AI + NLP focus.",
+      summary: "Applied AI & NLP techniques to build a RAG pipeline for a banking company's analytics platform.",
       timeframe: "Sep 2025 – Present",
       location: "Cambridge, MA",
       type: "harvard",
       status: "current",
+      link: "https://harvardanalytics.org/"
     },
     {
       company: "ParagonX Academy",
@@ -92,22 +98,25 @@ export const personalInfo = {
       timeframe: "Jan 2023 – Jun 2025",
       location: "San Jose, CA",
       type: "other",
+      link: "https://paragonx.academy/"
     },
     {
       company: "Stanford Robinson Lab",
       role: "Research Intern",
-      summary: "RNAseq analyses; mapped 122 biomarkers and proposed diagnostics in NSCLC.",
+      summary: "Conducted RNAseq analysis on immunosuppression and inflammatory phenotypes, mapped 122 genetic biomarkers of lung cancer, proposed diagnosis probe and novel therapeutic strategies.",
       timeframe: "Jun–Dec 2024",
       location: "Stanford, CA",
       type: "research",
+      link: "https://robinsonlab.stanford.edu/"
     },
     {
       company: "University of Iowa Respiratory Dynamics Lab",
       role: "Research Intern",
-      summary: "Built algorithms for patient-personalized 3D airway reconstructions.",
+      summary: "Developed algorithm to generate patient-personalized 3D reconstructions of human branching airway networks, identified applications in gas mixing, fluid distribution, and ventilation mechanics.",
       timeframe: "Jun–Aug 2023",
       location: "Iowa City, IA",
       type: "research",
+      link: "https://herrmann.lab.uiowa.edu/"
     },
     {
       company: "Institute of Electrical and Electronics Engineers",
@@ -116,31 +125,9 @@ export const personalInfo = {
       timeframe: "Feb–Aug 2023",
       location: "San Jose, CA",
       type: "research",
+      link: "https://www.ieee.org/"
     },
   ] as Experience[],
-  research: [
-    {
-      title: "Immunosuppression Biomarkers in NSCLC",
-      role: "Research Intern · Stanford Robinson Lab",
-      summary: "RNAseq analyses; mapped 122 biomarkers and proposed diagnostics.",
-      timeframe: "Jun–Dec 2024",
-      location: "Stanford, CA",
-    },
-    {
-      title: "Space-Filling Branching Airway Networks",
-      role: "Research Intern · Univ. of Iowa Respiratory Dynamics Lab",
-      summary: "Algorithms for patient-personalized 3D airway reconstructions.",
-      timeframe: "Jun–Aug 2023",
-      location: "Iowa City, IA",
-    },
-    {
-      title: "Lung Nodule Classification",
-      role: "Research Intern",
-      summary: "Multimodal CNN for malignancy classification; presented at ECAI.",
-      timeframe: "Jun–Aug 2023",
-      location: "San Jose, CA",
-    },
-  ] as Research[],
   socials: {
     github: "https://github.com/lijuliana",
     spotify: "https://open.spotify.com/user/sp6zplaxu7nj5gsdg7oedi82r?si=842ce387474a4c62",
@@ -163,10 +150,10 @@ export const personalInfo = {
     "History of Technology Seminar",
   ],
   organizations: [
-    "Harvard Financial Analysts Club (Quantitative Track)",
-    "Harvard University Quantitative Traders",
-    "Women in Computer Science",
-    "Harvard Machine Intelligence Community",
+    { name: "Harvard Financial Analysts Club (Quantitative Track)", link: "https://www.harvardfac.org/" },
+    { name: "Harvard University Quantitative Traders", link: "https://www.harvarduqt.com/" },
+    { name: "Women in Computer Science", link: "https://www.huwics.com/" },
+    { name: "Harvard Machine Intelligence Community", link: "https://www.humic.ai/" },
   ],
   skillsByCategory: {
     "Languages": ["Python", "C++", "Java", "R"],

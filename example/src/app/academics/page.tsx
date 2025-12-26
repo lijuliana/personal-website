@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { personalInfo } from "@/data/personal";
 
-const LogoImage = ({ company }: { company: string }) => {
+const LogoImage = ({ company, link }: { company: string; link?: string }) => {
   const [imageError, setImageError] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   // Remove all quotes (regular, curly, single), parentheses, and special chars, then slugify
@@ -17,8 +18,8 @@ const LogoImage = ({ company }: { company: string }) => {
     .replace(/\s+/g, "-");
   const imagePath = `/works/${slug}/logo.png`;
 
-  return (
-    <div className="relative h-full min-h-[80px] w-[80px] shrink-0 overflow-hidden rounded-lg bg-white/80 dark:bg-slate-900/60">
+  const imageContent = (
+    <div className="relative h-[80px] w-[80px] shrink-0 overflow-hidden rounded-lg bg-white/80 dark:bg-slate-900/60">
       {!imageError && (
         <Image
           src={imagePath}
@@ -34,6 +35,21 @@ const LogoImage = ({ company }: { company: string }) => {
       )}
     </div>
   );
+
+  if (link) {
+    return (
+      <Link
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="transition hover:opacity-80"
+      >
+        {imageContent}
+      </Link>
+    );
+  }
+
+  return imageContent;
 };
 
 export default function SchoolPage() {
@@ -48,16 +64,22 @@ export default function SchoolPage() {
     role: role.role,
     summary: role.summary,
     status: role.status,
+    link: role.link,
     isStarred: idx < 3, // First three roles get a star
   }));
 
   // Map organizations
-  const organizationItems = (organizations || []).map((org) => ({
-    type: "organization" as const,
-    company: org,
-    role: "Member",
-    status: "current" as const,
-  }));
+  const organizationItems = (organizations || []).map((org) => {
+    const orgName = typeof org === "string" ? org : org.name;
+    const orgLink = typeof org === "string" ? undefined : org.link;
+    return {
+      type: "organization" as const,
+      company: orgName,
+      role: "Member",
+      status: "current" as const,
+      link: orgLink,
+    };
+  });
 
   // Combine all items
   const allItems = [...roleItems, ...organizationItems];
@@ -95,14 +117,26 @@ export default function SchoolPage() {
               className="rounded-xl border border-[var(--border)] bg-white/80 p-4 shadow-sm dark:bg-slate-900/60"
             >
               <div className="flex items-stretch gap-5">
-                <LogoImage company={item.company} />
+                <LogoImage company={item.company} link={item.link} />
                 <div className="flex-1">
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <h2 className="text-lg font-semibold">
-                        {isStarred && <span className="text-neutral-700 dark:text-white mr-1.5">★</span>}
-                        {item.company}
-                      </h2>
+                      {item.link ? (
+                        <Link
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg font-semibold hover:underline transition"
+                        >
+                          {isStarred && <span className="text-neutral-700 dark:text-white mr-1.5">★</span>}
+                          {item.company}
+                        </Link>
+                      ) : (
+                        <h2 className="text-lg font-semibold">
+                          {isStarred && <span className="text-neutral-700 dark:text-white mr-1.5">★</span>}
+                          {item.company}
+                        </h2>
+                      )}
                       <p className="mt-1 text-sm font-medium text-neutral-600 dark:text-slate-400">{item.role}</p>
                     </div>
                     {item.status && (
