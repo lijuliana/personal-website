@@ -34,10 +34,12 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
+    
+    console.log("Resend API key is configured (length:", process.env.RESEND_API_KEY?.length || 0, ")");
 
     // Send email using Resend
     try {
-      await resend.emails.send({
+      const result = await resend.emails.send({
         from: "onboarding@resend.dev", // You'll need to verify a domain in Resend to use a custom email
         to: personalInfo.contact.email,
         subject: `Contact Form: ${name}`,
@@ -50,10 +52,19 @@ export async function POST(request: NextRequest) {
         `,
         replyTo: email,
       });
-    } catch (emailError) {
+      
+      console.log("Resend email sent successfully:", result);
+    } catch (emailError: any) {
       console.error("Resend email error:", emailError);
+      // Provide more detailed error message
+      const errorMessage = emailError?.message || "Unknown error";
+      const errorDetails = emailError?.response?.body || emailError;
+      console.error("Resend error details:", JSON.stringify(errorDetails, null, 2));
+      
       return NextResponse.json(
-        { error: "Failed to send email. Please try again later." },
+        { 
+          error: `Failed to send email: ${errorMessage}. Please check your Resend configuration.` 
+        },
         { status: 500 }
       );
     }
