@@ -74,7 +74,7 @@ export const personalInfo = {
     {
       company: "Harvard Tech for Social Good",
       role: "Senior Software Engineer",
-      summary: "Developed key features of Code.org’s mobile-friendly web platform, increasing accessibility for global learners.",
+      summary: "Developed key features of Code.org’s offline platform, increasing accessibility for global learners.",
       timeframe: "Sep 2025 – Present",
       location: "Cambridge, MA",
       type: "harvard",
