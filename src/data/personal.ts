@@ -24,7 +24,7 @@ export const personalInfo = {
   location: "San Jose, CA · Cambridge, MA",
   contact: {
     email: "julianali@college.harvard.edu",
-    linkedin: "https://linkedin.com/in/julianali-swe",
+    linkedin: "https://www.linkedin.com/in/julianali-ai/",
     resume: "/resume.pdf",
   },
   highlights: [
