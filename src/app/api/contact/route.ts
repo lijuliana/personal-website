@@ -39,9 +39,13 @@ export async function POST(request: NextRequest) {
 
     // Send email using Resend
     try {
+      // Resend test mode only allows sending to the account owner's email
+      // To send to other addresses, verify a domain in Resend and update the from/to addresses
+      const recipientEmail = process.env.RESEND_TEST_EMAIL || "25julianal@gmail.com";
+      
       const result = await resend.emails.send({
         from: "onboarding@resend.dev", // You'll need to verify a domain in Resend to use a custom email
-        to: personalInfo.contact.email,
+        to: recipientEmail,
         subject: `Contact Form: ${name}`,
         html: `
           <h2>New Contact Form Submission</h2>
